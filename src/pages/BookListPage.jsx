@@ -10,7 +10,7 @@ const BookListPage = () => {
   // Get the books at the right time
   useEffect(() => {
     const fetchBooks = async () => {
-      const response = await fetch('http://localhost:4000/books')
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/books`)
       if (response.ok) {
         const data = await response.json()
         console.log(data)

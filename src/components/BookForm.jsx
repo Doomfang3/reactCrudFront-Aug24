@@ -30,11 +30,14 @@ const BookForm = ({
     event.preventDefault()
 
     try {
-      const response = await fetch(`http://localhost:4000/books/${isUpdate ? book.id : ''}`, {
-        method: isUpdate ? 'PUT' : 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formValues),
-      })
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/books/${isUpdate ? book.id : ''}`,
+        {
+          method: isUpdate ? 'PUT' : 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formValues),
+        }
+      )
       if (response.ok) {
         const book = await response.json()
         navigate(`/books/${book.id}`)

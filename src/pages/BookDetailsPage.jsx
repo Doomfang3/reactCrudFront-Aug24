@@ -9,7 +9,7 @@ const BookDetailsPage = () => {
 
   useEffect(() => {
     const fetchBook = async () => {
-      const response = await fetch(`http://localhost:4000/books/${bookId}`)
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/books/${bookId}`)
       if (response.ok) {
         const data = await response.json()
         setBook(data)
@@ -21,7 +21,7 @@ const BookDetailsPage = () => {
 
   const remove = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/books/${bookId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/books/${bookId}`, {
         method: 'DELETE',
       })
       if (response.ok) {

@@ -8,7 +8,7 @@ const UpdateBook = () => {
   const [book, setBook] = useState()
 
   const fetchOneBook = async () => {
-    const response = await fetch(`http://localhost:4000/books/${bookId}`)
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/books/${bookId}`)
     if (response.ok) {
       const bookData = await response.json()
       console.log(bookData)
